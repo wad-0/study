@@ -1,4 +1,4 @@
-# Study_java_1.base
+# Study_java_2.set
 ## 数据类型
 ### 1、long和int可以相互转化
     由于long类型的范围比int类型大，所以long可以转换为int，反之可能会导致溢出。
