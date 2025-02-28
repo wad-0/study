@@ -39,3 +39,9 @@ T
 $java_study/base/IntegerGenerics.java,5\5\557b0412731990f6e062e1ca8dc574ddb1e8bf63
 L
 java_study/base/LongInt.java,d\b\dba293e485b570db75644b7b82e22f9d3731c9f7
+S
+#java_study/base/intface/Animal.java,3\f\3fc5a3e5c9e1b7443d664edc9f70f6d61159c245
+V
+&java_study/base/intface/MammalInt.java,a\b\ab8d217eb4fb4269082f3daaad718689f5e023f4
+W
+'java_study/base/deepcopy/CloneCopy.java,f\5\f5cc5fa7c29773cd7792ec5368eec40a0b525f0c
