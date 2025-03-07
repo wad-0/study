@@ -74,9 +74,27 @@
         使用场景：如果子查询结果集较小且不频繁变动，in更合适。而当子查询结果集较大且频繁变动时，exist性能更好。
         NULL值处理：in能够正确处理子查询中包含NULL值的情况，而exist不受NULL值影响。
     
+### sql题：
+    Ⅰ 给学生表、课程成绩表，求不存在01课程但存在02课程1的学生的成绩
+    -这题可以用left join或者Exists关键字来实现
+    1.left join：SELECT s.sid,s.sname,sc2.cid,sc2.score
+                 FROM student s
+                 LEFT JOIN score AS sc1 ON s.sid = sc1.sid AND sc1.cid = '01'
+                 LEFT JOIN score AS sc2 ON s.sid = sc2.sid AND sc2.cid = '02'
+                 WHERE sc1.sid IS NULL AND sc2.sid IS NOT NULL;
+    2.Exists：SELECT s.sid,s.sname,sc2.cid,sc2.score
+                 FROM student s
+                 JOIN score sc ON s.sid = sc2.sid AND sc.cid = '02'
+                 WHERE NOT EXISTS (
+                 SELECT 1 FROM score sc1 WHERE sc1.sid = s.sid AND sc1.cid = '01'
+                 );
 
-
-
+    Ⅱ 给定一个学生表student_score（stu_id，subject_id，score），查询总分排名在5-10名的学生id及对应的总分
+    WITH StudentTotalScores AS (
+        SELECT stu_id, SUM(score) AS total_score
+        FROM student_score
+        GROUP BY stu_id);
+      
 
 
 
